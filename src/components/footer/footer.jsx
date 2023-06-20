@@ -7,7 +7,7 @@ const Footer = () => {
   return (
     <div className={styles.container}>
       <div>
-        <p>&copy; QJBlog. All rights reseeved</p>
+        <p>&copy; QJBlog. All rights reserved</p>
       </div>
       <div className={styles.social}>
         <Link href="#">
