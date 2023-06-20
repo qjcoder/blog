@@ -1,0 +1,11 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+}
+
+.social {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}

@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  height: 100px;
+  align-items: center;
+  /* background-color: bisque; */
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+}
+.links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
