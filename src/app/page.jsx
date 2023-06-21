@@ -14,7 +14,7 @@ const Home = () => {
           Turning your ides into reality. We bring togather the teams from the
           global tech industry
         </h2>
-        <Button text={"See Our Works"} url={"/blog"} />
+        <Button text={"See Our Works"} url={"/portfolio"} />
       </div>
       <div className={styles.imgContainer}>
         <Image

@@ -1,0 +1,25 @@
+.item {
+  display: flex;
+  flex: 1;
+}
+
+.imgContainer {
+  display: flex;
+  margin-right: 50px;
+  margin-bottom: 20px;
+}
+
+.contentContainer {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+}
+
+.title {
+  margin-bottom: 5px;
+  text-transform: capitalize;
+}
+.desc {
+  text-align: justify;
+}

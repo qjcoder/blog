@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+.item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 50px;
+  gap: 20px;
+}
+
+.contentContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.authorInfo {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.p {
+  text-align: justify;
+  font-size: 18px;
+}
