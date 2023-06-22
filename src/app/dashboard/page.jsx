@@ -28,7 +28,7 @@ const Dashboard = () => {
   //Method 2: Fetch data at Client side using SWR
   const fetcher = (...args) => fetch(...args).then((res) => res.json());
   const { data, error, isLoading } = useSWR(
-    "https://jsonplaceholder.typicode.com/posts",
+    "https://jsonplaceholder.typicode.com/posts/",
     fetcher
   );
   console.log(data);
@@ -40,7 +40,7 @@ const Dashboard = () => {
           <div className={styles.imgContainer}>
             <Image src="/illustration.png" alt="" width={200} height={100} />
           </div>
-          <h2 className={styles.postTitle}>{data.title}</h2>
+          <h2 className={styles.postTitle}>{data?.title}</h2>
           <span className={styles.delete}>X</span>
         </div>
       </div>
