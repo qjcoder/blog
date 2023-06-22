@@ -1,22 +1,26 @@
 import React from "react";
 import styles from "./blog-post.module.css";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 
-const BlogPost = () => {
+async function getData(id) {
+  const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
+  if (!res.ok) {
+    return notFound();
+  }
+
+  return res.json();
+}
+
+const BlogPost = async ({ params }) => {
+  const data = await getData(params.id);
+  console.log(data);
   return (
     <div className={styles.container}>
       <div className={styles.item}>
         <div className={styles.contentContainer}>
-          <h1 className={styles.title}>
-            Navigating the Digital Frontier:<br></br>
-            The Art of User Experiance
-          </h1>
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores
-            perferendis accusamus labore reiciendis ex atque saepe! Aut ducimus
-            magni reprehenderit nostrum nobis rem, ullam dolorum iusto deleniti,
-            porro voluptate modi!
-          </p>
+          <h1 className={styles.title}>{data.title}</h1>
+          <p>{data.body}</p>
           <div className={styles.authorInfo}>
             <Image src="/1.png" alt="author-img" width={50} height={50} />
             <span>Author Name</span>
@@ -32,67 +36,18 @@ const BlogPost = () => {
         </div>
       </div>
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam animi
-        incidunt aut repudiandae ea neque libero, magnam doloribus blanditiis,
-        ut amet dolor deserunt nostrum vel expedita optio, dicta maxime autem.
+        {data.body}
         <br></br>
         <br></br>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, non quam
-        sint dolores, quasi dolor quia eligendi sapiente sunt minus blanditiis
-        necessitatibus voluptatum ducimus. Reprehenderit quasi eligendi laborum
-        cum nihil?
+        {data.body}
       </p>
       <br></br>
       <br></br>
       <h1>Why is user Experience is Important?</h1>
+      {data.body}
       <br></br>
       <br></br>
-      <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam
-        voluptate aliquam illum fugiat dolorum tenetur, quibusdam accusamus sint
-        qui nostrum perspiciatis quo laborum fugit nam numquam officia deleniti
-        ex alias. Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-        Veniam voluptate aliquam illum fugiat dolorum tenetur, quibusdam
-        accusamus sint qui nostrum perspiciatis quo laborum fugit nam numquam
-        officia deleniti ex alias. Lorem ipsum dolor, sit amet consectetur
-        adipisicing elit. Veniam voluptate aliquam illum fugiat dolorum tenetur,
-        quibusdam accusamus sint qui nostrum perspiciatis quo laborum fugit nam
-        numquam officia deleniti ex alias.
-        <br></br>
-        <br></br>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam
-        voluptate aliquam illum fugiat dolorum tenetur, quibusdam accusamus sint
-        qui nostrum perspiciatis quo laborum fugit nam numquam officia deleniti
-        ex alias. Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-        Veniam voluptate aliquam illum fugiat dolorum tenetur, quibusdam
-        accusamus sint qui nostrum perspiciatis quo laborum fugit nam numquam
-        officia deleniti ex alias. Lorem ipsum dolor, sit amet consectetur
-        adipisicing elit. Veniam voluptate aliquam illum fugiat dolorum tenetur,
-        quibusdam accusamus sint qui nostrum perspiciatis quo laborum fugit nam
-        numquam officia deleniti ex alias. Lorem ipsum dolor, sit amet
-        consectetur adipisicing elit. Veniam voluptate aliquam illum fugiat
-        dolorum tenetur, quibusdam accusamus sint qui nostrum perspiciatis quo
-        laborum fugit nam numquam officia deleniti ex alias. Lorem ipsum dolor,
-        sit amet consectetur adipisicing elit. Veniam voluptate aliquam illum
-        fugiat dolorum tenetur, quibusdam accusamus sint qui nostrum
-        perspiciatis quo laborum fugit nam numquam officia deleniti ex alias.
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam
-        voluptate aliquam illum fugiat dolorum tenetur, quibusdam accusamus sint
-        qui nostrum perspiciatis quo laborum fugit nam numquam officia deleniti
-        ex alias.
-        <br></br>
-        <br></br>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam
-        voluptate aliquam illum fugiat dolorum tenetur, quibusdam accusamus sint
-        qui nostrum perspiciatis quo laborum fugit nam numquam officia deleniti
-        ex alias. Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-        Veniam voluptate aliquam illum fugiat dolorum tenetur, quibusdam
-        accusamus sint qui nostrum perspiciatis quo laborum fugit nam numquam
-        officia deleniti ex alias. Lorem ipsum dolor, sit amet consectetur
-        adipisicing elit. Veniam voluptate aliquam illum fugiat dolorum tenetur,
-        quibusdam accusamus sint qui nostrum perspiciatis quo laborum fugit nam
-        numquam officia deleniti ex alias.
-      </p>
+      {data.body}
     </div>
   );
 };
